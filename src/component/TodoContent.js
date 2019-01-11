@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Card, ListGroup} from 'reactstrap';
 import Todo from './Todo.js';
+import {Paper, List} from '@material-ui/core/';
 
         // Need to input the Todo along with the edit and delete buttons
         // Todo
@@ -12,8 +12,8 @@ class TodoContent extends Component {
 
     render(props){
         return(
-            <Card>
-                <ListGroup>
+            <Paper style={{margin: 50}}>
+                <List style={{}}>
                     {this.props.todos.map( (todo, i) => (
                         <Todo 
                             key={todo.id}
@@ -24,10 +24,9 @@ class TodoContent extends Component {
                             isCompleted={todo.isCompleted}
                             toggleCompleted={this.props.toggleCompleted}
                         />
-                     ))
-                    }                     
-                </ListGroup>
-            </Card>
+                     ))}                     
+                </List>
+            </Paper>
         );
     }
 }

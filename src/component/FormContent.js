@@ -1,33 +1,35 @@
 import React, { Component } from 'react';
-import {Form, InputGroup, Label, Input, Button} from 'reactstrap';
+import { Button, TextField} from '@material-ui/core/';
 
 class FormContent extends Component {
 
-    render () {
+    render (props) {
         // InputForm
         // Todo
         return (
-            <Form onSubmit={this.props.onSubmit} className='formContent'>
-                <Label for='todoInput'>To Start, add a Todo</Label>
-                <InputGroup>
-                <Input
+            <form onSubmit={this.props.onSubmit} className='formContent'>
+                
+                <div>
+                <TextField
+                    margin='normal'
+                    variant='outlined'
                     value={this.props.value}
                     onChange={this.props.handleChange} 
-                    id='todoInput' 
+                    id='outlined-Error' 
                     placeholder='...Enter a Todo' 
                     aria-label="Enter Todo Here" 
-                    aria-describedby="submitButton" 
                     required
                 />
                 <Button
-                    
+                    type='submit'
+                    margin='normal'
                     id='submitButton' 
-                    color='outline-secondary' 
+                    color='primary' 
                 >
                     Add Todo
                 </Button>
-                </InputGroup>
-            </Form>
+                </div>
+            </form>
         )
     }
 }

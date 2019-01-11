@@ -1,26 +1,19 @@
 import React from 'react';
-import {ListGroupItem, Input, Label, ButtonGroup, Button} from 'reactstrap';
+import {Button, ListItem, Checkbox, ListItemText} from '@material-ui/core/';
 
 const Todo = (props) => {
 
   return (
-  <ListGroupItem 
-    className="todo-li"
-    
-    >
-    <ButtonGroup 
-      className='btn btn-group-toggle'
-      data-toggle="buttons"
-    >
-      <Label className=' btn-secondary'>
-        <Input type='checkbox' checked={props.isCompleted} onChange={() => props.toggleCompleted(props['data-id'])} />Checked
-      </Label>  
-    </ButtonGroup>
+  <ListItem style={{margin: 16}} className="todo-li">
+        <Checkbox 
+          checked={props.isCompleted} 
+          onChange={() => props.toggleCompleted(props['data-id'])} 
+        />
     {' '}
-    {props.textContent}
+    <ListItemText primary ={props.textContent} />
     {' '}
-    <Button onClick={() => props.deleteTodo(props.id)} className='btn-lg' color='danger' id={props.id}>Delete Todo</Button>
-  </ListGroupItem>);
+    <Button varient='contained' color='primary' onClick={() => props.deleteTodo(props.id)} id={props.id}>Delete Todo</Button>
+  </ListItem>);
 }
 
 export default Todo;

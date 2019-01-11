@@ -32,6 +32,7 @@ export default class Content extends Component {
 
         addTodo = e => {
             e.preventDefault();
+            console.log(this.state.todos)
             // Need to give all todos seperate id's.
             const newTodo = {task: this.state.value, isCompleted: false, id: uuid()};
             this.setState({ todos: [...this.state.todos, newTodo], value: '',
@@ -51,8 +52,7 @@ export default class Content extends Component {
             console.log(this.state);
             const newTodos = this.state.todos.slice();
             newTodos[i].isCompleted = !newTodos[i].isCompleted;
-            this.setState({todos: newTodos});
-            
+            this.setState({todos: newTodos})      
         };
 
         clearSelected = () => {

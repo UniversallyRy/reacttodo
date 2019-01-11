@@ -1,17 +1,17 @@
 import React,{ Component } from 'react';
-import {Button} from 'reactstrap';
+import Button from '@material-ui/core/Button';
 
 class ClearButtons extends Component {
 
 
    someOrAll = (props) => {
      const someSelected = this.props.todos.filter(todo => todo.isCompleted === true );
-     console.log(someSelected.length === 0);
      if(someSelected.length >= 1) {
       return(
         <Button 
-        onClick={() => this.props.clearSelected()} 
-        className='btn-lg' color='danger' 
+        variant='contained'
+        color='primary'
+        onClick={() => this.props.clearSelected()}  
         id={'clearButton'}
       >
           Delete Selected Todos
@@ -22,17 +22,17 @@ class ClearButtons extends Component {
      
   }
 
-   clearAll = (props) => {
-    return(
-      <Button 
-      onClick={() => this.props.clearSelected()} 
-      className='btn-lg' color='danger' 
-      id={'clearButton'}
-    >
-        Delete Selected Todos
-    </Button>
-    )
-  }
+  //  clearAll = (props) => {
+  //   return(
+  //     <Button 
+  //     onClick={() => this.props.clearSelected()} 
+  //     className='btn-lg' color='danger' 
+  //     id={'clearButton'}
+  //   >
+  //       Delete Selected Todos
+  //   </Button>
+  //   )
+  // }
   
  render(props){ 
    return(
