@@ -35,22 +35,14 @@ const Init = (state = initialState, action) => {
   }
 
   if (action.type === TOGGLE_TODO) {
-      return state.todos.map(todo => 
-        (todo.id === action.id) 
-        ? {todo, isCompleted: !todo.isCompleted}
-        : todo
-        );
-       
-  };
-  //   return state.map((todo, index) => {
-  //     if (index === action.index) {
-  //       return Object.assign({}, todo, {
-  //         isCompleted: !todo.isCompleted
-  //       });
-  //     }
-  //     return todo;
-  //   });
-  // }
+      return Object.assign({}, state, {
+        todos: state.todos.map(todo => 
+          (todo.id === action.id)
+           ? {task: todo.task, isCompleted: !todo.isCompleted, id: todo.id}
+           : todo
+        )
+      });    
+  }
     return state;
   };
 
