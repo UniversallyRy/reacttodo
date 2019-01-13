@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import uuid from "uuid";
 import { addTodo } from "../actions/index";
-import { Button, TextField} from '@material-ui/core/';
+import { Button, TextField } from '@material-ui/core/';
+
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -14,8 +14,7 @@ class FormContent extends Component {
     constructor() {
         super();
         this.state = {
-            task: '',
-            isCompleted: false,
+            task: ''
         };
     }
 
@@ -25,44 +24,42 @@ class FormContent extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { task, isCompleted } = this.state;
-        const id = uuid();
-        this.props.addTodo({ task, isCompleted, id  });
-        this.setState({task: ""});
-    }
+        this.props.addTodo(this.state.task);
+        this.setState({ task: "" });
+    };
 
     render() {
-        // InputForm
-        // Todo
         const { task } = this.state;
         return (
-            <form onSubmit={this.handleSubmit} className='formContent'>    
+            <form onSubmit={this.handleSubmit} className='formContent'>
                 <div className='form-group'>
-                <label htmlFor='task'></label>
-                <TextField
-                    margin='normal'
-                    variant='outlined'
-                    value={task}
-                    onChange={this.handleChange} 
-                    id='task' 
-                    placeholder='...Enter a Todo' 
-                    aria-label="Enter Todo Here" 
-                    required
-                />
+                    <label htmlFor='task'></label>
+                    <TextField
+                        margin='normal'
+                        variant='outlined'
+                        value={task}
+                        onChange={this.handleChange}
+                        id='task'
+                        placeholder='...Enter a Todo'
+                        aria-label="Enter Todo Here"
+                        required
+                    />
                 </div>
-                <Button
-                    type='submit'
-                    margin='normal'
-                    id='submitButton' 
-                    color='primary' 
-                >
-                    Add Todo
-                </Button>
+                <div>
+                    <Button
+                        type='submit'
+                        margin='normal'
+                        id='submitButton'
+                        color='danger'
+                    >
+                        Add Todo
+                    </Button>
+                </div>
             </form>
         )
     }
 }
 
-    const Form = connect(null, mapDispatchToProps)(FormContent);
+const Forms = connect(null, mapDispatchToProps)(FormContent);
 
-export default Form;
+export default Forms;

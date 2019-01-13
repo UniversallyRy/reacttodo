@@ -1,4 +1,10 @@
-import {ADD_TODO, DELETE_TODO, TOGGLE_TODO} from './actionTypes';
+import {
+    ADD_TODO,
+    DELETE_TODO,
+    TOGGLE_TODO,
+    CLEAR_CHECKED,
+    TOGGLE_ALL
+} from './actionTypes';
 
 
 export function addTodo(task) {
@@ -19,5 +25,19 @@ export function toggleTodo(id) {
     return {
         type: TOGGLE_TODO,
         id
+    };
+}
+
+export function clearChecked(checked) {
+    return {
+        type: CLEAR_CHECKED,
+        checked
+    };
+}
+
+export function toggleAll(checked) {
+    return {
+        type: TOGGLE_ALL,
+        checked
     };
 }

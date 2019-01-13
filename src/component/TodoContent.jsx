@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteTodo, toggleTodo } from "../actions/index";
-
-import {Paper, List, Button, ListItem, Checkbox, ListItemText} from '@material-ui/core/';
+import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
+import {Card, ListItem, Checkbox, ListItemText} from '@material-ui/core/';
 
         // Need to input the Todo along with the edit and delete buttons
         // Todo
@@ -20,36 +20,34 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-
-
 const TodoList = ({ todos, deleteTodo, toggleTodo }) => (   
 
-            <Paper style={{margin: 50}}>
-                <List>
+            <Card style={{width: '800px', margin: '0 auto', backgroundColor:'rgb(141, 44, 44)'}}>
+                
                     {todos.map( todo => (
                     <ListItem 
                         key={todo.id} 
-                        style={{margin: 16}} 
+                        style={{margin:'10px', backgroundColor: 'lightgrey'}} 
                         className="todo-li">
-                    <Checkbox onChange={() => toggleTodo(todo.id)}/>
+                    <Checkbox style={{backgroundColor:'rgb(141, 44, 44)'}} color="danger" checked={todo.isCompleted} onChange={() => toggleTodo(todo.id)}/>
                     {' '}
                     <ListItemText 
                         primary ={todo.task}
                         style={{textDecoration: todo.isCompleted ? 'line-through': 'none'}}  
                     />
                     {' '}
-                    <Button 
-                    style={{marginRight: 50}}
+                    <DeleteForeverTwoToneIcon 
+                    style={{marginRight: '0 auto', fontSize: 35}}
                     variant='contained' 
-                    color='primary' 
+                    color='danger' 
                     onClick={() => deleteTodo(todo.id)}
                     >
                         Delete Todo
-                    </Button>
+                    </DeleteForeverTwoToneIcon>
                   </ListItem>        
                      ))}                     
-                </List>
-            </Paper>
+                
+            </Card>
 );
 
 const TodoContent = connect(mapStateToProps, mapDispatchToProps)(TodoList);
