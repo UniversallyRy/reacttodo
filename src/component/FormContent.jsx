@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { addTodo } from "../actions/index";
-import { Button, TextField } from '@material-ui/core/';
+import { Button, TextField, } from '@material-ui/core/';
+import { Add } from '@material-ui/icons/';
+
 
 
 function mapDispatchToProps(dispatch) {
@@ -36,7 +38,8 @@ class FormContent extends Component {
                     <label htmlFor='task'></label>
                     <TextField
                         margin='normal'
-                        variant='outlined'
+                        variant='filled'
+                        maxLength={20}
                         value={task}
                         onChange={this.handleChange}
                         id='task'
@@ -50,8 +53,10 @@ class FormContent extends Component {
                         type='submit'
                         margin='normal'
                         id='submitButton'
-                        color='danger'
+                        color='inherit'
                     >
+                        <Add style={{ marginRight: '4px' }} />
+                        {" "}
                         Add Todo
                     </Button>
                 </div>

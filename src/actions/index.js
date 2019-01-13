@@ -3,41 +3,55 @@ import {
     DELETE_TODO,
     TOGGLE_TODO,
     CLEAR_CHECKED,
-    TOGGLE_ALL
+    TOGGLE_ALL,
+    EDIT_TODO,
+    HOVER_OVER,
+    LOAD_LOCALSTORAGE,
+    SAVE_LOCALSTORAGE,
 } from './actionTypes';
 
 
-export function addTodo(task) {
-    return {
-        type: ADD_TODO,
-        task
-    };
-}
+export const addTodo = task => ({
+    type: ADD_TODO,
+    task
+});
 
-export function deleteTodo(index) {
-    return {
-        type: DELETE_TODO,
-        index
-    };
-}
+export const deleteTodo = index => ({
+    type: DELETE_TODO,
+    index
+});
 
-export function toggleTodo(id) {
-    return {
-        type: TOGGLE_TODO,
-        id
-    };
-}
+export const toggleTodo = id => ({
+    type: TOGGLE_TODO,
+    id
+});
 
-export function clearChecked(checked) {
-    return {
-        type: CLEAR_CHECKED,
-        checked
-    };
-}
+export const clearChecked = checked => ({
+    type: CLEAR_CHECKED,
+    checked
+});
 
-export function toggleAll(checked) {
-    return {
-        type: TOGGLE_ALL,
-        checked
-    };
-}
+export const toggleAll = checked => ({
+    type: TOGGLE_ALL,
+    checked
+});
+
+export const editTodo = id => ({
+    type: EDIT_TODO,
+    id
+})
+
+export const hoverOver = id => ({
+    type: HOVER_OVER,
+    id
+});
+
+export const LoadStateLocalStorage = () => ({
+    type: LOAD_LOCALSTORAGE,
+    payload: {},
+});
+
+export const SaveStateLocalStorage = () => ({
+    type: SAVE_LOCALSTORAGE,
+    payload: {},
+});

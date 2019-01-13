@@ -4,30 +4,58 @@ import {
   DELETE_TODO,
   TOGGLE_TODO,
   CLEAR_CHECKED,
-  TOGGLE_ALL
+  TOGGLE_ALL,
+  EDIT_TODO,
+  HOVER_OVER,
+  LOAD_LOCALSTORAGE,
+  SAVE_LOCALSTORAGE
 } from "../actions/actionTypes";
+
+const LOCALSTORAGE_NAME = 'Local Storage'
 
 const initialState = {
   todos: [{
       task: 'New TODO',
       isCompleted: false,
-      id: 0
+      id: uuid(),
+      isEdited: false,
+      hovered: false
     },
     {
       task: 'NO TODO',
       isCompleted: false,
-      id: 1
+      id: uuid(),
+      isEdited: false,
+      hovered: false
     },
     {
       task: 'Read the docs.',
       isCompleted: false,
-      id: 2
+      id: uuid(),
+      isEdited: false,
+      hovered: false
     }
   ]
 };
 
 const Init = (state = initialState, action) => {
   switch (action.type) {
+    case LOAD_LOCALSTORAGE:
+      {
+        const LocalStorageState = JSON.parse(window.localStorage.getItem(LOCALSTORAGE_NAME));
+        if (LocalStorageState) {
+          return { ...state,
+            todos: LocalStorageState
+          }
+        }
+        return state;
+      }
+    case SAVE_LOCALSTORAGE:
+      {
+        window.localStorage.setItem(LOCALSTORAGE_NAME, JSON.stringify(action.payload.state));
+        return state;
+      }
+
     case ADD_TODO:
       {
         const id = uuid();
@@ -35,6 +63,8 @@ const Init = (state = initialState, action) => {
           task: action.task,
           id,
           isCompleted: false,
+          isEdited: false,
+          hovered: false
         };
         return { ...state,
           todos: [...state.todos, todoItem]
@@ -44,7 +74,8 @@ const Init = (state = initialState, action) => {
     case DELETE_TODO:
       {
         const todos = state.todos.filter(({
-          id
+          id,
+          i
         }) => id !== action.index);
         return { ...state,
           todos
@@ -64,11 +95,25 @@ const Init = (state = initialState, action) => {
         };
       }
 
+    case EDIT_TODO:
+      {
+        const todos = state.todos.map(todo => {
+          if (todo.id === action.id) {
+            todo.isEdited = !todo.isEdited
+          }
+          return todo;
+        })
+        return { ...state,
+          todos
+        };
+      }
+
     case CLEAR_CHECKED:
       {
-        return Object.assign({}, state, {
-          todos: state.todos.filter(todo => todo.isCompleted !== action.checked)
-        });
+        const todos = state.todos.filter(todo => todo.isCompleted !== action.checked)
+        return { ...state,
+          todos
+        }
       }
 
     case TOGGLE_ALL:
@@ -80,6 +125,20 @@ const Init = (state = initialState, action) => {
             todo
           )
         });
+      }
+
+    case HOVER_OVER:
+      {
+        const todos = state.todos.map(todo => {
+          if (todo.id === action.id) {
+            todo.hovered = !todo.hovered
+          }
+          return todo;
+        })
+        return {
+          ...state,
+          todos
+        }
       }
 
     default:
