@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { addTodo } from "../actions/index";
-import { Button, FilledInput, FormGroup } from '@material-ui/core/';
-import { Add } from '@material-ui/icons/';
+import FormInput from './FormInput';
 
 
 
@@ -34,32 +33,12 @@ class FormContent extends Component {
     };
 
     render() {
-        const { task } = this.state;
         return (
             <form onSubmit={this.handleSubmit} className='formContent'>
-                <FormGroup>
-                    <label htmlFor='task'></label>
-                    <FilledInput
-                        style={{ margin: '0 auto', backgroundColor: 'grey' }}
-                        value={task}
-                        onChange={this.handleChange}
-                        id='task'
-                        placeholder='...Enter a Todo'
-                        required
-                    />
-                </FormGroup>
-                <div>
-                    <Button
-                        type='submit'
-                        margin='normal'
-                        id='submitButton'
-                        color='inherit'
-                    >
-                        <Add style={{ marginRight: '4px' }} />
-                        {" "}
-                        Add Todo
-                    </Button>
-                </div>
+                <FormInput
+                    task={this.state.task}
+                />
+
             </form>
         )
     }

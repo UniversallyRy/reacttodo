@@ -27,7 +27,7 @@ const TodoList = ({ todos, deleteTodo, toggleTodo, hoverOver }) => (
         </div>
 
         {
-            todos.map((todo, i) => (
+            todos.map((todo) => (
 
                 <ListItem
                     onMouseEnter={() => hoverOver(todo.id)}
