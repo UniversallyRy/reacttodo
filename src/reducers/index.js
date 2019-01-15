@@ -4,14 +4,13 @@ import {
   DELETE_TODO,
   TOGGLE_TODO,
   CLEAR_CHECKED,
-  TOGGLE_ALL,
   EDIT_TODO,
   HOVER_OVER,
   LOAD_LOCALSTORAGE,
   SAVE_LOCALSTORAGE
 } from "../actions/actionTypes";
 
-const LOCALSTORAGE_NAME = 'Local Storage'
+const LOCALSTORAGE_NAME = 'jata-state'
 
 const initialState = {
   todos: [{
@@ -114,17 +113,6 @@ const Init = (state = initialState, action) => {
         return { ...state,
           todos
         }
-      }
-
-    case TOGGLE_ALL:
-      {
-        return Object.assign({}, state, {
-          todos: state.todos.map(todo =>
-            ((todo.isCompleted === action.checked)) ?
-            todo :
-            todo
-          )
-        });
       }
 
     case HOVER_OVER:

@@ -18,15 +18,15 @@ const styles = {
 };
 
 
+
+
 const App = () => (
 
     <div className="App">
         <AppBar style={{ backgroundColor: 'grey', color: 'black' }}> TodoApp </AppBar>
-        {/* Where the rest of the app goes */}
         <Form />
-        {/* <ClearButtons /> */}
         <TodoContent />
-        <Popper open={true} style={styles}>This is the Footer</Popper>
+        <Popper open={true} style={styles}>Made with React, Redux and material ui.</Popper>
     </div>
 )
 

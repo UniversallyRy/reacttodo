@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { addTodo } from "../actions/index";
-import { Button, TextField, } from '@material-ui/core/';
+import { Button, FilledInput, FormGroup } from '@material-ui/core/';
 import { Add } from '@material-ui/icons/';
 
 
@@ -26,7 +26,10 @@ class FormContent extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addTodo(this.state.task);
+        const truncatedTask = (this.state.task.length >= 50)
+            ? this.state.task.slice(0, 50) + '...'
+            : this.state.task;
+        this.props.addTodo(truncatedTask);
         this.setState({ task: "" });
     };
 
@@ -34,20 +37,17 @@ class FormContent extends Component {
         const { task } = this.state;
         return (
             <form onSubmit={this.handleSubmit} className='formContent'>
-                <div className='form-group'>
+                <FormGroup>
                     <label htmlFor='task'></label>
-                    <TextField
-                        margin='normal'
-                        variant='filled'
-                        maxLength={20}
+                    <FilledInput
+                        style={{ margin: '0 auto', backgroundColor: 'grey' }}
                         value={task}
                         onChange={this.handleChange}
                         id='task'
                         placeholder='...Enter a Todo'
-                        aria-label="Enter Todo Here"
                         required
                     />
-                </div>
+                </FormGroup>
                 <div>
                     <Button
                         type='submit'

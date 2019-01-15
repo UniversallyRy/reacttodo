@@ -3,7 +3,8 @@ import { Button } from '@material-ui/core/';
 import { DeleteForeverTwoTone, EditTwoTone } from '@material-ui/icons/';
 
 
-class TodoButtons extends Component {
+export default class TodoButtons extends Component {
+
 
     render() {
         return (
@@ -14,7 +15,6 @@ class TodoButtons extends Component {
                 >
                     <EditTwoTone
                         style={{ fontSize: 25 }}
-
                     />
                 </Button>
                 <Button
@@ -24,11 +24,9 @@ class TodoButtons extends Component {
                         variant='contained'
                         color='inherit'
                         onClick={() => this.props.deleteTodo(this.props.todo)}
-
                     />
                 </Button>
             </div>)
     }
 }
 
-export default TodoButtons

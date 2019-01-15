@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { clearChecked, toggleAll } from "../actions/index";
+import { clearChecked } from "../actions/index";
 import Button from '@material-ui/core/Button';
 
 function mapStateToProps(state) {
@@ -9,7 +9,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     clearChecked: todos => dispatch(clearChecked(todos)),
-    toggleAll: todos => dispatch(toggleAll(todos))
   };
 }
 

@@ -2,16 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteTodo, toggleTodo, hoverOver } from "../actions/index";
 import TodoButtons from './TodoButtons.jsx'
-import { ListItem, Checkbox, ListItemText } from '@material-ui/core/';
+import { ListItem, Checkbox, ListItemText, List } from '@material-ui/core/';
 import ClearSelected from './ClearSelected.jsx'
 
-// Need to input the Todo along with the edit and delete buttons
-// Todo
-// Edit
-// Delete
-
 function mapStateToProps(state) {
-    return { todos: state.todos, displayButtons: state.display };
+    return { todos: state.todos, hovered: state.todos.hovered };
 };
 
 function mapDispatchToProps(dispatch) {
@@ -24,15 +19,16 @@ function mapDispatchToProps(dispatch) {
 
 const TodoList = ({ todos, deleteTodo, toggleTodo, hoverOver }) => (
 
-    <div style={{
+    <List style={{
         width: '800px', margin: '0 auto'
     }}>
-        <div style={{ height: '50px' }}>
+        <div style={{ marginLeft: '10px', height: '50px' }}>
             <ClearSelected />
         </div>
 
         {
             todos.map((todo, i) => (
+
                 <ListItem
                     onMouseEnter={() => hoverOver(todo.id)}
                     onMouseLeave={() => hoverOver(todo.id)}
@@ -41,17 +37,18 @@ const TodoList = ({ todos, deleteTodo, toggleTodo, hoverOver }) => (
                     className="todo-li">
                     <Checkbox style={{ backgroundColor: 'rgb(141, 44, 44)' }} color="default" checked={todo.isCompleted} onChange={() => toggleTodo(todo.id)} />
                     {' '}
-                    <ListItemText
+                    < ListItemText
+                        size='50'
                         primary={todo.task}
                         style={{
                             textDecoration: todo.isCompleted ? 'line-through' : 'none',
-                            opacity: todo.isCompleted ? '.3' : '1'
+                            opacity: todo.isCompleted ? '.3' : '1',
                         }}
                     />
                     {' '}
-
                     {todo.hovered ?
-                        <TodoButtons id={todo.id}
+                        <TodoButtons
+                            id={todo.id}
                             deleteTodo={deleteTodo}
                             todo={todo.id}
                         />
@@ -61,7 +58,7 @@ const TodoList = ({ todos, deleteTodo, toggleTodo, hoverOver }) => (
             ))
         }
 
-    </div >
+    </List >
 );
 
 const TodoContent = connect(mapStateToProps, mapDispatchToProps)(TodoList);

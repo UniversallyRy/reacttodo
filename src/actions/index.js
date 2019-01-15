@@ -3,7 +3,6 @@ import {
     DELETE_TODO,
     TOGGLE_TODO,
     CLEAR_CHECKED,
-    TOGGLE_ALL,
     EDIT_TODO,
     HOVER_OVER,
     LOAD_LOCALSTORAGE,
@@ -28,11 +27,6 @@ export const toggleTodo = id => ({
 
 export const clearChecked = checked => ({
     type: CLEAR_CHECKED,
-    checked
-});
-
-export const toggleAll = checked => ({
-    type: TOGGLE_ALL,
     checked
 });
 
