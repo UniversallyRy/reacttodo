@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { addTodo } from "../actions/index";
-import FormInput from './FormInput';
+import Add from '@material-ui/icons/Add';
+import { FilledInput, FormGroup, Button } from '@material-ui/core/';
 
 
-
-function mapDispatchToProps(dispatch) {
-    return {
-        addTodo: todo => dispatch(addTodo(todo))
-    };
-}
-
-class FormContent extends Component {
+export default class FormContent extends Component {
     constructor() {
         super();
         this.state = {
@@ -20,7 +12,7 @@ class FormContent extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({ [e.target.id]: e.target.value });
+        this.setState({ task: e.target.value });
     }
 
     handleSubmit = (e) => {
@@ -28,22 +20,39 @@ class FormContent extends Component {
         const truncatedTask = (this.state.task.length >= 50)
             ? this.state.task.slice(0, 50) + '...'
             : this.state.task;
-        this.props.addTodo(truncatedTask);
+        this.props.handleAddTodo(truncatedTask);
         this.setState({ task: "" });
     };
 
     render() {
         return (
             <form onSubmit={this.handleSubmit} className='formContent'>
-                <FormInput
-                    task={this.state.task}
-                />
-
+                <div>
+                    <FormGroup>
+                        <label htmlFor='task'></label>
+                        <FilledInput
+                            style={{ margin: '0 auto', backgroundColor: 'grey' }}
+                            value={this.state.task}
+                            onChange={this.handleChange}
+                            id='task'
+                            placeholder='...Enter a item'
+                            required
+                        />
+                    </FormGroup>
+                    <div>
+                        <Button
+                            type='submit'
+                            margin='normal'
+                            id='submitButton'
+                            color='inherit'
+                        >
+                            <Add style={{ marginRight: '4px' }} />
+                            {" "}
+                            Add item
+                        </Button>
+                    </div>
+                </div>
             </form>
         )
     }
 }
-
-const Forms = connect(null, mapDispatchToProps)(FormContent);
-
-export default Forms;

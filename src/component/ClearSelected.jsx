@@ -1,32 +1,21 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { clearChecked } from "../actions/index";
 import Button from '@material-ui/core/Button';
 
-function mapStateToProps(state) {
-  return { todos: state.todos };
-}
-function mapDispatchToProps(dispatch) {
-  return {
-    clearChecked: todos => dispatch(clearChecked(todos)),
-  };
-}
-
-
-class ClearButtons extends Component {
+class ClearButton extends Component {
 
   someOrAll = () => {
-    const someSelected = this.props.todos.filter(todo => todo.isCompleted === true);
+    const someSelected = this.props.items.filter(item => item.isCompleted === true);
 
     if (someSelected.length >= 1) {
       return (
         <Button
+          style={{ marginLeft: '10px', backgroundColor: 'lightgrey' }}
           variant='contained'
           color='inherit'
-          onClick={() => this.props.clearChecked(true)}
+          onClick={() => this.props.handleClearChecked(true)}
           id='clearButton'
         >
-          Delete Selected Todos
+          Delete Selected items
       </Button>
       )
     } else {
@@ -46,6 +35,5 @@ class ClearButtons extends Component {
 
 }
 
-const ClearButton = connect(mapStateToProps, mapDispatchToProps)(ClearButtons);
 
 export default ClearButton;

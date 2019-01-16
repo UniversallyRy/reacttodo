@@ -1,32 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button } from '@material-ui/core/';
 import { DeleteForeverTwoTone, EditTwoTone } from '@material-ui/icons/';
 
 
-export default class TodoButtons extends Component {
+const TodoItem = props => (
 
+    <div className="todoButtons">
+        <Button
+            variant='contained'
+            style={{ marginRight: '10px' }}
+        >
+            <EditTwoTone
+                onClick={() => props.handleSelectEditTodo(props.id)}
+                style={{ fontSize: 25 }}
+            />
+        </Button>
+        <Button
+            variant='contained'>
+            <DeleteForeverTwoTone
+                style={{ marginLeft: '0', fontSize: 25 }}
+                variant='contained'
+                color='inherit'
+                onClick={() => props.handleDeleteTodo(props.id)}
+            />
+        </Button>
+    </div>
+)
 
-    render() {
-        return (
-            <div>
-                <Button
-                    variant='contained'
-                    style={{ marginRight: '10px' }}
-                >
-                    <EditTwoTone
-                        style={{ fontSize: 25 }}
-                    />
-                </Button>
-                <Button
-                    variant='contained'>
-                    <DeleteForeverTwoTone
-                        style={{ marginLeft: '0', fontSize: 25 }}
-                        variant='contained'
-                        color='inherit'
-                        onClick={() => this.props.deleteTodo(this.props.todo)}
-                    />
-                </Button>
-            </div>)
-    }
-}
-
+export default TodoItem;

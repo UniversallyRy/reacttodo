@@ -4,10 +4,18 @@ import {
     TOGGLE_TODO,
     CLEAR_CHECKED,
     EDIT_TODO,
-    HOVER_OVER,
+    RETURN_EDIT_TODO,
     LOAD_LOCALSTORAGE,
     SAVE_LOCALSTORAGE,
+    CANCEL_EDIT_TODO,
+    SET_VISIBILITY_FILTER,
 } from './actionTypes';
+
+export const VisibilityFilters = {
+    SHOW_ALL: 'SHOW_ALL',
+    SHOW_COMPLETED: 'SHOW_COMPLETED',
+    SHOW_ACTIVE: 'SHOW_ACTIVE'
+}
 
 
 export const addTodo = task => ({
@@ -35,10 +43,10 @@ export const editTodo = id => ({
     id
 })
 
-export const hoverOver = id => ({
-    type: HOVER_OVER,
-    id
-});
+export const returnTodo = modifiedTodo => ({
+    type: RETURN_EDIT_TODO,
+    payload: { modifiedTodo }
+})
 
 export const LoadStateLocalStorage = () => ({
     type: LOAD_LOCALSTORAGE,
@@ -49,3 +57,13 @@ export const SaveStateLocalStorage = () => ({
     type: SAVE_LOCALSTORAGE,
     payload: {},
 });
+
+export const cancelEdit = () => ({
+    type: CANCEL_EDIT_TODO,
+    payload: {},
+});
+
+export const setVisibilityFilter = filter => ({
+    type: SET_VISIBILITY_FILTER,
+    filter
+})
