@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Add from '@material-ui/icons/Add';
 import { FilledInput, FormGroup, Button } from '@material-ui/core/';
 
 
 export default class FormContent extends Component {
-    constructor() {
-        super();
-        this.state = {
-            task: ''
-        };
-    }
+    static propTypes = {
+        handleAddTodo: PropTypes.func.isRequired,
+    };
+    state = {
+        task: ''
+    };
+
 
     handleChange = (e) => {
         this.setState({ task: e.target.value });
@@ -35,7 +37,7 @@ export default class FormContent extends Component {
                             value={this.state.task}
                             onChange={this.handleChange}
                             id='task'
-                            placeholder='...Enter a item'
+                            placeholder='...Enter A Todo'
                             required
                         />
                     </FormGroup>
@@ -48,7 +50,7 @@ export default class FormContent extends Component {
                         >
                             <Add style={{ marginRight: '4px' }} />
                             {" "}
-                            Add item
+                            Add Todo
                         </Button>
                     </div>
                 </div>

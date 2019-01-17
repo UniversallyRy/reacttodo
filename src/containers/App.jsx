@@ -1,9 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AppLayout from '../component/App'
-import { addTodo, deleteTodo, toggleTodo, clearChecked, editTodo, cancelEdit, returnTodo, LoadStateLocalStorage, SaveStateLocalStorage } from '../actions/index';
+import PropTypes from 'prop-types';
+import AppLayout from '../component/App';
+import {
+    addTodo,
+    deleteTodo,
+    toggleTodo,
+    editTodo,
+    saveEdit,
+    cancelEdit,
+    clearChecked,
+    LoadStateLocalStorage,
+    SaveStateLocalStorage
+} from '../actions/index';
 
-
+const appPropTypes = {
+    handleAddTodo: PropTypes.func.isRequired,
+    handleDeleteTodo: PropTypes.func.isRequired,
+    handleTodoToggle: PropTypes.func.isRequired,
+    handleSelectEditTodo: PropTypes.func.isRequired,
+    handleSaveEdit: PropTypes.func.isRequired,
+    handleEditCancel: PropTypes.func.isRequired,
+    handleClearChecked: PropTypes.func.isRequired,
+    handleLoadStateLocalStorage: PropTypes.func.isRequired,
+    handleSaveStateLocalStorage: PropTypes.func.isRequired,
+};
 
 
 class App extends Component {
@@ -16,6 +37,7 @@ class App extends Component {
     handleSelectEditTodo = id => this.props.handleSelectEditTodo(id);
     handleSaveEdit = modifiedItem => this.props.handleSaveEdit(modifiedItem);
     handleEditCancel = selectedItemId => this.props.handleEditCancel(selectedItemId);
+    handleClearChecked = selectedItemId => this.props.handleClearChecked(selectedItemId);
 
     render() {
         return <AppLayout {...this.props} />;
@@ -32,13 +54,14 @@ const mapDispatchToProps = {
     handleDeleteTodo: deleteTodo,
     handleTodoToggle: toggleTodo,
     handleSelectEditTodo: editTodo,
+    handleSaveEdit: saveEdit,
     handleEditCancel: cancelEdit,
-    handleSaveEdit: returnTodo,
     handleClearChecked: clearChecked,
     handleLoadStateLocalStorage: LoadStateLocalStorage,
     handleSaveStateLocalStorage: SaveStateLocalStorage,
 };
 
+App.propTypes = appPropTypes;
 
 export default connect(
     mapStateToProps,

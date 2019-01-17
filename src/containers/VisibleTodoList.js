@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'
-import TodoApp from '../component/TodoApp'
+import { connect } from 'react-redux';
+import TodoApp from '../component/TodoApp';
 
 const getVisibleTodos = (items, filter) => {
     switch (filter) {

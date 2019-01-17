@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
-import { ListItem, FormHelperText, FormGroup, OutlinedInput, Button } from '@material-ui/core/';
-
+import PropTypes from 'prop-types';
+import {
+    ListItem,
+    FormHelperText,
+    FormGroup,
+    InputBase,
+    Button
+} from '@material-ui/core/';
+import { CancelTwoTone, CheckBoxTwoTone } from '@material-ui/icons/';
 
 class TodoForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todoVal: props.item.task,
-        }
+    static propTypes = {
+        handleEditCancel: PropTypes.func.isRequired,
+        handleSaveEdit: PropTypes.func.isRequired,
+        item: PropTypes.object.isRequired,
+    };
+
+    state = {
+        todoVal: this.props.item.task,
     }
+
+
+
 
     componentDidMount = () => window.addEventListener('keyup', this.handleKeyUp);
 
@@ -25,9 +38,13 @@ class TodoForm extends Component {
 
     handleEditAndResetForm = ev => {
         ev.preventDefault();
+        // Truncate to prevent access words outside listitem 
+        const truncatedTask = (this.state.todoVal.length >= 55)
+            ? this.state.todoVal.slice(0, 55) + '...'
+            : this.state.todoVal;
         this.props.handleSaveEdit({
             ...this.props.item,
-            value: this.state.todoVal,
+            value: truncatedTask,
         });
 
         return this.setState({ todoVal: '' });
@@ -46,19 +63,18 @@ class TodoForm extends Component {
     render() {
         return (
             <ListItem
-                key={this.props.todoVal}
+                key={this.state.todoVal}
                 className='todoForm'
-                style={{ margin: '10px', backgroundColor: 'lightgrey' }}
+                style={{ margin: '10px', backgroundColor: 'lightgrey', borderRadius: '5px' }}
             >
-                <div className='editedTodo'>
-                    <form onSubmit={this.handleEditAndResetForm}>
-                        <FormGroup>
-                            <FormHelperText>Edit item or Cancel</FormHelperText>
-                            <OutlinedInput
-                                labelWidth={10}
-                                size='50'
-                                type='text'
-                                style={{ margin: '0 auto' }}
+                <form onSubmit={this.handleEditAndResetForm}>
+                    <div className='form-row'
+                        style={{ marginLeft: '10px', }}
+                    >
+                        <FormGroup className='col'>
+                            <FormHelperText>Edit Todo or Cancel</FormHelperText>
+                            <InputBase
+                                style={{ marginBottom: '5px', width: '600px' }}
                                 name='edit-item'
                                 value={this.state.todoVal}
                                 onChange={this.handleChange}
@@ -68,29 +84,37 @@ class TodoForm extends Component {
                             />
                         </FormGroup>
                         {' '}
-                        <div className='ui two bottom attached buttons'>
+                        <div style={{}} className='col-auto'>
                             <Button
+                                style={{ marginRight: '10px' }}
+                                variant='contained'
                                 type='submit'
                                 className='todoFomSubmit'
                                 disabled={!this.state.todoVal}
                             >
-                                submit Text
-                        </Button>
-                            <Button style={{ marginLeft: '0', fontSize: 12 }}
+                                <CheckBoxTwoTone
+                                    style={{ marginLeft: '0', fontSize: 25 }}
+                                    color='inherit'
+                                />
+                            </Button>
+                            <Button
+                                variant='contained'
                                 className='todoFormCancel'
                                 onClick={this.props.handleEditCancel}
 
                             >
-                                Cancel
-                        </Button>
+                                <CancelTwoTone
+                                    style={{ marginLeft: '0', fontSize: 25 }}
+                                    color='inherit'
+                                />
+                            </Button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </ListItem >
         )
     }
 };
-
 
 
 export default TodoForm;

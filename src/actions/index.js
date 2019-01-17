@@ -2,12 +2,12 @@ import {
     ADD_TODO,
     DELETE_TODO,
     TOGGLE_TODO,
-    CLEAR_CHECKED,
     EDIT_TODO,
-    RETURN_EDIT_TODO,
+    SAVE_EDITED_TODO,
+    CANCEL_EDIT_TODO,
+    CLEAR_COMPLETED,
     LOAD_LOCALSTORAGE,
     SAVE_LOCALSTORAGE,
-    CANCEL_EDIT_TODO,
     SET_VISIBILITY_FILTER,
 } from './actionTypes';
 
@@ -33,20 +33,28 @@ export const toggleTodo = id => ({
     id
 });
 
-export const clearChecked = checked => ({
-    type: CLEAR_CHECKED,
-    checked
-});
 
 export const editTodo = id => ({
     type: EDIT_TODO,
     id
 })
 
-export const returnTodo = modifiedTodo => ({
-    type: RETURN_EDIT_TODO,
-    payload: { modifiedTodo }
+export const saveEdit = modifiedTodo => ({
+    type: SAVE_EDITED_TODO,
+    payload: {
+        modifiedTodo
+    }
 })
+
+export const cancelEdit = () => ({
+    type: CANCEL_EDIT_TODO,
+    payload: {},
+});
+
+export const clearChecked = checked => ({
+    type: CLEAR_COMPLETED,
+    checked
+});
 
 export const LoadStateLocalStorage = () => ({
     type: LOAD_LOCALSTORAGE,
@@ -58,10 +66,6 @@ export const SaveStateLocalStorage = () => ({
     payload: {},
 });
 
-export const cancelEdit = () => ({
-    type: CANCEL_EDIT_TODO,
-    payload: {},
-});
 
 export const setVisibilityFilter = filter => ({
     type: SET_VISIBILITY_FILTER,

@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+
+const ClearButtonProps = {
+  items: PropTypes.array.isRequired,
+  handleClearChecked: PropTypes.func.isRequired,
+};
 
 class ClearButton extends Component {
 
@@ -35,5 +41,6 @@ class ClearButton extends Component {
 
 }
 
+ClearButton.propTypes = ClearButtonProps;
 
 export default ClearButton;

@@ -1,1 +1,1 @@
-export const LOCALSTORAGE_NAME = 'jata-state';
+export const LOCALSTORAGE_NAME = 'todo-state';

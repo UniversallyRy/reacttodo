@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '@material-ui/core/Button';
+
 const Link = ({ active, children, onClick }) => (
     <Button
         variant='contained'
         onClick={onClick}
         disabled={active}
-        style={{
-            marginLeft: '10px',
-        }}
+        style={{ marginLeft: '10px' }}
     >
         {children}
     </Button>

@@ -1,7 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core/';
 import { DeleteForeverTwoTone, EditTwoTone } from '@material-ui/icons/';
 
+const TodoItemPropTypes = {
+    handleSelectEditTodo: PropTypes.func.isRequired,
+    handleDeleteTodo: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
+};
 
 const TodoItem = props => (
 
@@ -26,5 +32,7 @@ const TodoItem = props => (
         </Button>
     </div>
 )
+
+TodoItem.propTypes = TodoItemPropTypes;
 
 export default TodoItem;

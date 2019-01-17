@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { AppBar, Popper } from '@material-ui/core/';
-// import TodoApp from './TodoApp';
 import VisibleTodoList from '../containers/VisibleTodoList'
 
 const styles = {
@@ -25,8 +24,7 @@ const AppLayout = props => (
     <div className="App">
         <AppBar style={{ backgroundColor: 'grey', color: 'black' }}> TodoApp </AppBar>
         <VisibleTodoList {...props} />
-        {/* <TodoApp {...props} className='todoApp' /> */}
-        <Popper open={true} style={styles}>Made with React, Redux and material ui.</Popper>
+        <Popper open={true} style={styles}>Made with React, Redux and material-ui.</Popper>
     </div>
 )
 
