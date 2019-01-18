@@ -22,9 +22,9 @@ const styles = {
 const AppLayout = props => (
 
     <div className="App">
-        <AppBar style={{ backgroundColor: 'grey', color: 'black' }}> TodoApp </AppBar>
+        <AppBar className='appBar' style={{ backgroundColor: 'grey', color: 'black' }}> TodoApp </AppBar>
         <VisibleTodoList {...props} />
-        <Popper open={true} style={styles}>Made with React, Redux and material-ui.</Popper>
+        <Popper className='footer' open={true} style={styles}>Made with React, Redux and material-ui.</Popper>
     </div>
 )
 

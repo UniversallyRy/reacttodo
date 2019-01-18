@@ -15,6 +15,7 @@ class ClearButton extends Component {
     if (someSelected.length >= 1) {
       return (
         <Button
+          className='clearButton'
           style={{ marginLeft: '10px', backgroundColor: 'lightgrey' }}
           variant='contained'
           color='inherit'

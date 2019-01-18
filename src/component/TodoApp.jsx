@@ -42,26 +42,28 @@ export default class TodoApp extends Component {
                             items={this.props.items}
                         />
                     </div>
-                    {this.props.items.map((item) => (
-                        <div key={item.id}>
-                            {
-                                this.props.editingTodo.id === item.id ? (
-                                    <TodoForm
-                                        item={this.props.editingTodo}
-                                        handleSaveEdit={this.props.handleSaveEdit}
-                                        handleEditCancel={this.props.handleEditCancel}
-                                    />)
-                                    :
-                                    (<TodoItem
-                                        item={item}
-                                        handleDeleteTodo={this.props.handleDeleteTodo}
-                                        handleSelectEditTodo={this.props.handleSelectEditTodo}
-                                        handleTodoToggle={this.props.handleTodoToggle}
-                                    />)
-                            }
-                        </div>
-                    ))
-                    }
+                    <div className='todoList'>
+                        {this.props.items.map((item) => (
+                            <div key={item.id}>
+                                {
+                                    this.props.editingTodo.id === item.id ? (
+                                        <TodoForm
+                                            item={this.props.editingTodo}
+                                            handleSaveEdit={this.props.handleSaveEdit}
+                                            handleEditCancel={this.props.handleEditCancel}
+                                        />)
+                                        :
+                                        (<TodoItem
+                                            item={item}
+                                            handleDeleteTodo={this.props.handleDeleteTodo}
+                                            handleSelectEditTodo={this.props.handleSelectEditTodo}
+                                            handleTodoToggle={this.props.handleTodoToggle}
+                                        />)
+                                }
+                            </div>
+                        ))
+                        }
+                    </div>
                 </List>
             </div>
         )

@@ -14,30 +14,30 @@ import {
     SAVE_LOCALSTORAGE
 } from "../actions/actionTypes";
 
-const initialState = {
-    items: [{
-            task: 'Todo One',
-            isCompleted: false,
-            id: uuid(),
-        },
-        {
-            task: 'TODO TWO',
-            isCompleted: false,
-            id: uuid(),
-        },
-        {
-            task: 'Todo 3',
-            isCompleted: false,
-            id: uuid(),
-        }
-    ],
-};
+// const initialState = {
+//     items: [{
+//         task: 'Todo One',
+//         isCompleted: false,
+//         id: uuid(),
+//     },
+//     {
+//         task: 'TODO TWO',
+//         isCompleted: false,
+//         id: uuid(),
+//     },
+//     {
+//         task: 'Todo 3',
+//         isCompleted: false,
+//         id: uuid(),
+//     }
+//     ],
+// };
 
-// const INIT_STATE = {
-//     items: [],
-// }
+const INIT_STATE = {
+    items: [],
+}
 
-const todosReducer = (state = initialState, action) => {
+const todosReducer = (state = INIT_STATE, action) => {
     switch (action.type) {
 
         case ADD_TODO:
@@ -58,7 +58,7 @@ const todosReducer = (state = initialState, action) => {
             {
                 const items = state.items.filter(({
                     id
-                }) => id !== action.index);
+                }) => id !== action.id);
                 return {
                     ...state,
                     items
@@ -93,14 +93,15 @@ const todosReducer = (state = initialState, action) => {
         case SAVE_EDITED_TODO:
             {
                 const items = state.items.map(item => {
-                    if (item.id === action.payload.modifiedTodo.id) {
-                        item.task = action.payload.modifiedTodo.value;
+                    if (item.id === action.modifiedTodo.id) {
+                        item.task = action.modifiedTodo.task;
                     }
 
                     return item;
                 });
 
-                return { ...state,
+                return {
+                    ...state,
                     items,
                     editingTodo: {}
                 };
@@ -108,10 +109,12 @@ const todosReducer = (state = initialState, action) => {
 
         case CANCEL_EDIT_TODO:
             {
-                const newState = state.items.length ? { ...state,
+                const newState = state.items.length ? {
+                    ...state,
                     editingTodo: {}
-                } : { ...state
-                };
+                } : {
+                        ...state
+                    };
                 return newState;
             }
 
@@ -131,14 +134,14 @@ const todosReducer = (state = initialState, action) => {
                 if (localStorageState) {
                     return {
                         ...state,
-                        items: localStorageState
+                        items: action.items.state
                     }
                 }
                 return state;
             }
         case SAVE_LOCALSTORAGE:
             {
-                window.localStorage.setItem(LOCALSTORAGE_NAME, JSON.stringify(action.payload.state));
+                window.localStorage.setItem(LOCALSTORAGE_NAME, JSON.stringify(action.items.state));
                 return state;
             }
 

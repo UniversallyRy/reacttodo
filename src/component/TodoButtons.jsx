@@ -17,6 +17,7 @@ const TodoItem = props => (
             style={{ marginRight: '10px' }}
         >
             <EditTwoTone
+                className='editButton'
                 onClick={() => props.handleSelectEditTodo(props.id)}
                 style={{ fontSize: 25 }}
             />
@@ -24,6 +25,7 @@ const TodoItem = props => (
         <Button
             variant='contained'>
             <DeleteForeverTwoTone
+                className='deleteButton'
                 style={{ marginLeft: '0', fontSize: 25 }}
                 variant='contained'
                 color='inherit'

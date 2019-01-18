@@ -20,9 +20,6 @@ class TodoForm extends Component {
         todoVal: this.props.item.task,
     }
 
-
-
-
     componentDidMount = () => window.addEventListener('keyup', this.handleKeyUp);
 
     handleKeyUp = ev => {
@@ -44,21 +41,11 @@ class TodoForm extends Component {
             : this.state.todoVal;
         this.props.handleSaveEdit({
             ...this.props.item,
-            value: truncatedTask,
+            task: truncatedTask,
         });
 
         return this.setState({ todoVal: '' });
     };
-
-    // Add proptypes this way
-    // Home.proptypes = {
-    //     actions: PropTypes.object.isRequired,
-    //     dispatch: PropTypes.func.isRequired,
-    //     movies: PropTypes.array.isRequired,
-    //     isFetching: PropTypes.bool.isRequired,
-    //     errorMessage: PropTypes.string
-    //   };
-
 
     render() {
         return (
@@ -115,6 +102,5 @@ class TodoForm extends Component {
         )
     }
 };
-
 
 export default TodoForm;

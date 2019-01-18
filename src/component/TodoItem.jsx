@@ -32,9 +32,10 @@ export default class TodoItem extends Component {
                 style={{ margin: '10px', backgroundColor: 'lightgrey', borderRadius: '5px' }}
                 className="item-li">
                 <Checkbox
+                    onChange={() => this.props.handleTodoToggle(this.props.item.id)}
+                    id='todoCheckbox'
                     style={{ backgroundColor: 'rgb(141, 44, 44)' }}
                     color="default" checked={this.props.item.isCompleted}
-                    onChange={() => this.props.handleTodoToggle(this.props.item.id)}
                 />
                 {' '}
                 <ListItemText

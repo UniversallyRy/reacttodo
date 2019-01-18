@@ -28,6 +28,7 @@ const appPropTypes = {
 
 
 class App extends Component {
+    // Need to fix Local Storage
     componentDidMount = () => this.props.handleLoadStateLocalStorage;
     componentDidUpdate = () => this.props.handleSaveStateLocalStorage(this.props.items);
 

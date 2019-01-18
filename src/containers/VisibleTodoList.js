@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import TodoApp from '../component/TodoApp';
 
 const getVisibleTodos = (items, filter) => {
+
     switch (filter) {
         case 'SHOW_ALL':
             return items

@@ -36,7 +36,7 @@ export default class FormContent extends Component {
                             style={{ margin: '0 auto', backgroundColor: 'grey' }}
                             value={this.state.task}
                             onChange={this.handleChange}
-                            id='task'
+                            id='newTaskInput'
                             placeholder='...Enter A Todo'
                             required
                         />

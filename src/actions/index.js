@@ -23,9 +23,9 @@ export const addTodo = task => ({
     task
 });
 
-export const deleteTodo = index => ({
+export const deleteTodo = id => ({
     type: DELETE_TODO,
-    index
+    id
 });
 
 export const toggleTodo = id => ({
@@ -41,9 +41,7 @@ export const editTodo = id => ({
 
 export const saveEdit = modifiedTodo => ({
     type: SAVE_EDITED_TODO,
-    payload: {
-        modifiedTodo
-    }
+    modifiedTodo
 })
 
 export const cancelEdit = () => ({
@@ -56,14 +54,14 @@ export const clearChecked = checked => ({
     checked
 });
 
-export const LoadStateLocalStorage = () => ({
+export const LoadStateLocalStorage = items => ({
     type: LOAD_LOCALSTORAGE,
-    payload: {},
+    items,
 });
 
-export const SaveStateLocalStorage = () => ({
+export const SaveStateLocalStorage = items => ({
     type: SAVE_LOCALSTORAGE,
-    payload: {},
+    items,
 });
 
 
