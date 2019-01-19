@@ -23,7 +23,7 @@ export default class FormContent extends Component {
             ? this.state.task.slice(0, 50) + '...'
             : this.state.task;
         this.props.handleAddTodo(truncatedTask);
-        this.setState({ task: "" });
+        this.setState({ task: '' });
     };
 
     render() {
@@ -33,7 +33,7 @@ export default class FormContent extends Component {
                     <FormGroup>
                         <label htmlFor='task'></label>
                         <FilledInput
-                            style={{ margin: '0 auto', backgroundColor: 'grey' }}
+                            style={{ margin: '0 auto', backgroundColor: 'grey', }}
                             value={this.state.task}
                             onChange={this.handleChange}
                             id='newTaskInput'

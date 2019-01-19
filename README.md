@@ -5,7 +5,7 @@ A todo app . . .
 ## Built With
 
 - [ReactJS](https://reactjs.org)
-- [Redux](https://redux.js.org/)
+- [Redux](https://redux.js.org/) and [React Redux](https://react-redux.js.org/)
 - [material-ui](https://material-ui.com/)
 
 ## Pre-requisites

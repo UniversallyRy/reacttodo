@@ -6,8 +6,6 @@ import {
     SAVE_EDITED_TODO,
     CANCEL_EDIT_TODO,
     CLEAR_COMPLETED,
-    LOAD_LOCALSTORAGE,
-    SAVE_LOCALSTORAGE,
     SET_VISIBILITY_FILTER,
 } from './actionTypes';
 
@@ -53,17 +51,6 @@ export const clearChecked = checked => ({
     type: CLEAR_COMPLETED,
     checked
 });
-
-export const LoadStateLocalStorage = items => ({
-    type: LOAD_LOCALSTORAGE,
-    items,
-});
-
-export const SaveStateLocalStorage = items => ({
-    type: SAVE_LOCALSTORAGE,
-    items,
-});
-
 
 export const setVisibilityFilter = filter => ({
     type: SET_VISIBILITY_FILTER,

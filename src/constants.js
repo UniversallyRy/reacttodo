@@ -1,1 +1,0 @@
-export const LOCALSTORAGE_NAME = 'todo-state';

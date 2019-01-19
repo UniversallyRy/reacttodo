@@ -1,8 +1,5 @@
 import uuid from 'uuid';
 import {
-    LOCALSTORAGE_NAME
-} from '../constants';
-import {
     ADD_TODO,
     DELETE_TODO,
     TOGGLE_TODO,
@@ -10,8 +7,6 @@ import {
     SAVE_EDITED_TODO,
     CANCEL_EDIT_TODO,
     CLEAR_COMPLETED,
-    LOAD_LOCALSTORAGE,
-    SAVE_LOCALSTORAGE
 } from "../actions/actionTypes";
 
 // const initialState = {
@@ -126,23 +121,6 @@ const todosReducer = (state = INIT_STATE, action) => {
                     ...state,
                     items
                 }
-            }
-
-        case LOAD_LOCALSTORAGE:
-            {
-                const localStorageState = JSON.parse(window.localStorage.getItem(LOCALSTORAGE_NAME));
-                if (localStorageState) {
-                    return {
-                        ...state,
-                        items: action.items.state
-                    }
-                }
-                return state;
-            }
-        case SAVE_LOCALSTORAGE:
-            {
-                window.localStorage.setItem(LOCALSTORAGE_NAME, JSON.stringify(action.items.state));
-                return state;
             }
 
         default:

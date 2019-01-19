@@ -10,8 +10,6 @@ import {
     saveEdit,
     cancelEdit,
     clearChecked,
-    LoadStateLocalStorage,
-    SaveStateLocalStorage
 } from '../actions/index';
 
 const appPropTypes = {
@@ -22,15 +20,10 @@ const appPropTypes = {
     handleSaveEdit: PropTypes.func.isRequired,
     handleEditCancel: PropTypes.func.isRequired,
     handleClearChecked: PropTypes.func.isRequired,
-    handleLoadStateLocalStorage: PropTypes.func.isRequired,
-    handleSaveStateLocalStorage: PropTypes.func.isRequired,
 };
 
 
 class App extends Component {
-    // Need to fix Local Storage
-    componentDidMount = () => this.props.handleLoadStateLocalStorage;
-    componentDidUpdate = () => this.props.handleSaveStateLocalStorage(this.props.items);
 
     handleAddTodo = itemValue => this.props.handleAddTodo(itemValue);
     handleDeleteTodo = selectedItemId => this.props.handleDeleteTodo(selectedItemId);
@@ -58,8 +51,6 @@ const mapDispatchToProps = {
     handleSaveEdit: saveEdit,
     handleEditCancel: cancelEdit,
     handleClearChecked: clearChecked,
-    handleLoadStateLocalStorage: LoadStateLocalStorage,
-    handleSaveStateLocalStorage: SaveStateLocalStorage,
 };
 
 App.propTypes = appPropTypes;
