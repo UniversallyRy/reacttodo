@@ -14,7 +14,7 @@ A todo app . . .
 
 ## Demo
 
-Demo in the future
+Demo in the future//Heroku?
 
 ## Usage
 
