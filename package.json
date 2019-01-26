@@ -6,7 +6,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -14,6 +16,7 @@
       "!src/index.js"
     ]
   },
+  "homepage": "http://IronyOfRyan.github.io/reacttodo",
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -33,8 +36,12 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
+    "eslint": "^5.12.1",
+    "eslint-config-react-app": "^3.0.6",
+    "gh-pages": "^2.0.1",
     "jest-localstorage-mock": "^2.4.0"
   }
 }
