@@ -9,6 +9,8 @@ import {
 } from '@material-ui/core/';
 import { CancelTwoTone, CheckBoxTwoTone } from '@material-ui/icons/';
 
+
+// Component rendered when the edit button is clicked.
 class TodoForm extends Component {
     static propTypes = {
         handleEditCancel: PropTypes.func.isRequired,

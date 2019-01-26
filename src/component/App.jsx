@@ -3,6 +3,7 @@ import './App.css';
 import { AppBar, Popper } from '@material-ui/core/';
 import VisibleTodoList from '../containers/VisibleTodoList'
 
+// Component wrapper for the whole app.
 const styles = {
     textAlign: 'center',
     background: 'grey',

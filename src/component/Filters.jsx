@@ -1,8 +1,8 @@
 import React from 'react'
 import FilterLink from '../containers/FilterLink'
 import { VisibilityFilters } from '../actions'
-// import { AllOutTwoTone } from '@material-ui/icons/';
 
+// Filter component to swap todos visibility state.
 const Filters = () => (
     <div style={{ margin: '10px' }}>
         <span>Show: </span>

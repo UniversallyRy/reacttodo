@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core/';
 import { DeleteForeverTwoTone, EditTwoTone } from '@material-ui/icons/';
 
+//component to delete and edit todos
 const TodoItemPropTypes = {
     handleSelectEditTodo: PropTypes.func.isRequired,
     handleDeleteTodo: PropTypes.func.isRequired,

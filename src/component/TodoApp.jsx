@@ -7,6 +7,7 @@ import ClearButton from './ClearSelected'
 import { List } from '@material-ui/core/';
 import Filters from './Filters.jsx'
 
+// Component for the todo portion of the app.
 export default class TodoApp extends Component {
     static propTypes = {
         items: PropTypes.array.isRequired,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Add from '@material-ui/icons/Add';
 import { FilledInput, FormGroup, Button } from '@material-ui/core/';
 
-
+// Form component for user input.
 export default class FormContent extends Component {
     static propTypes = {
         handleAddTodo: PropTypes.func.isRequired,

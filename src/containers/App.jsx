@@ -12,6 +12,7 @@ import {
     clearChecked,
 } from '../actions/index';
 
+// Container for the majority of the Redux state.
 const appPropTypes = {
     handleAddTodo: PropTypes.func.isRequired,
     handleDeleteTodo: PropTypes.func.isRequired,

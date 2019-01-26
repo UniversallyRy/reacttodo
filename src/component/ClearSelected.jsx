@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
+// Clear Button that pops up when a todo is toggled to completed.
 const ClearButtonProps = {
   items: PropTypes.array.isRequired,
   handleClearChecked: PropTypes.func.isRequired,

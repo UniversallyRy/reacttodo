@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import TodoApp from '../component/TodoApp';
 
+// Container for the Redux visibility filter.
 const getVisibleTodos = (items, filter) => {
 
     switch (filter) {

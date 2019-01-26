@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TodoButtons from './TodoButtons.jsx';
 import { ListItem, Checkbox, ListItemText } from '@material-ui/core/';
 
-
+// Component that renders todo text from user input.
 export default class TodoItem extends Component {
     static propTypes = {
         item: PropTypes.object.isRequired,
