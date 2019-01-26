@@ -14,7 +14,7 @@ A todo app . . .
 
 ## Demo
 
-Demo in the future//Heroku?
+- [Demo can be found here](https://ironyofryan.github.io/reacttodo/)
 
 ## Usage
 
