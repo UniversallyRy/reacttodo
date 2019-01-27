@@ -14,7 +14,7 @@ A todo app . . .
 
 ## Demo
 
-- [Demo can be found here](https://ironyofryan.github.io/reacttodo/)
+- [Demo can be found here](https://universallyry.github.io/reacttodo/)
 
 ## Usage
 
