@@ -31,7 +31,7 @@ export default class TodoApp extends Component {
     render() {
 
         return (
-            <div className="todoApp">
+            <div className="todoApp" style={{marginBottom: '55px'}}>
                 <div>
                     <Form handleAddTodo={this.props.handleAddTodo} />
                 </div>

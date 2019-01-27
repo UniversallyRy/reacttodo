@@ -33,7 +33,7 @@ export default class FormContent extends Component {
                     <FormGroup>
                         <label htmlFor='task'></label>
                         <FilledInput
-                            style={{ margin: '0 auto', backgroundColor: 'grey', }}
+                            style={{ width: '450px', margin: '0 auto', backgroundColor: 'grey', }}
                             value={this.state.task}
                             onChange={this.handleChange}
                             id='newTaskInput'
