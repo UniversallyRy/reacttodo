@@ -1,4 +1,5 @@
 import React from 'react';
+import GithubLogo from '../icons/github.png';
 import { BottomNavigation, ListItemText } from '@material-ui/core/';
 
 const styles = {
@@ -19,6 +20,9 @@ const Footer = () => {
   return (
     <BottomNavigation style={styles}>
       <ListItemText style={{fontSize: '20px'}}>Created with React, Redux and material-ui</ListItemText>
+      <a href='https://github.com/UniversallyRy/reacttodo'>
+          <img  src={GithubLogo} style={{marginRight: '20px'}} alt="GitHub"/>
+      </a>
     </BottomNavigation>
   )
 }
