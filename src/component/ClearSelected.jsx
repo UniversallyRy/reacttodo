@@ -23,7 +23,7 @@ class ClearButton extends Component {
           onClick={() => this.props.handleClearChecked(true)}
           id='clearButton'
         >
-          Delete Selected todos
+          Delete Selected todo/s
       </Button>
       )
     } else {
