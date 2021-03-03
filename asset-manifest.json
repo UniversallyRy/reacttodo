@@ -1,16 +1,24 @@
 {
-  "main.css": "/reacttodo/static/css/main.038c9ae3.chunk.css",
-  "main.js": "/reacttodo/static/js/main.cb6efea9.chunk.js",
-  "main.js.map": "/reacttodo/static/js/main.cb6efea9.chunk.js.map",
-  "static/css/1.148e7cbb.chunk.css": "/reacttodo/static/css/1.148e7cbb.chunk.css",
-  "static/js/1.36fbff92.chunk.js": "/reacttodo/static/js/1.36fbff92.chunk.js",
-  "static/js/1.36fbff92.chunk.js.map": "/reacttodo/static/js/1.36fbff92.chunk.js.map",
-  "runtime~main.js": "/reacttodo/static/js/runtime~main.b8dfc564.js",
-  "runtime~main.js.map": "/reacttodo/static/js/runtime~main.b8dfc564.js.map",
-  "static/media/index.css": "/reacttodo/static/media/roboto-latin-900italic.bc833e72.woff",
-  "static/css/1.148e7cbb.chunk.css.map": "/reacttodo/static/css/1.148e7cbb.chunk.css.map",
-  "static/css/main.038c9ae3.chunk.css.map": "/reacttodo/static/css/main.038c9ae3.chunk.css.map",
-  "index.html": "/reacttodo/index.html",
-  "precache-manifest.24034141a2e8b4d3e185bf2bfbb7dbf8.js": "/reacttodo/precache-manifest.24034141a2e8b4d3e185bf2bfbb7dbf8.js",
-  "service-worker.js": "/reacttodo/service-worker.js"
+  "files": {
+    "main.css": "/reacttodo/static/css/main.6a3f0668.chunk.css",
+    "main.js": "/reacttodo/static/js/main.892453eb.chunk.js",
+    "main.js.map": "/reacttodo/static/js/main.892453eb.chunk.js.map",
+    "runtime-main.js": "/reacttodo/static/js/runtime-main.ba0a416b.js",
+    "runtime-main.js.map": "/reacttodo/static/js/runtime-main.ba0a416b.js.map",
+    "static/css/2.512759d2.chunk.css": "/reacttodo/static/css/2.512759d2.chunk.css",
+    "static/js/2.711377f2.chunk.js": "/reacttodo/static/js/2.711377f2.chunk.js",
+    "static/js/2.711377f2.chunk.js.map": "/reacttodo/static/js/2.711377f2.chunk.js.map",
+    "index.html": "/reacttodo/index.html",
+    "static/css/2.512759d2.chunk.css.map": "/reacttodo/static/css/2.512759d2.chunk.css.map",
+    "static/css/main.6a3f0668.chunk.css.map": "/reacttodo/static/css/main.6a3f0668.chunk.css.map",
+    "static/js/2.711377f2.chunk.js.LICENSE.txt": "/reacttodo/static/js/2.711377f2.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/reacttodo/static/media/roboto-latin-900italic.cb5ad999.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ba0a416b.js",
+    "static/css/2.512759d2.chunk.css",
+    "static/js/2.711377f2.chunk.js",
+    "static/css/main.6a3f0668.chunk.css",
+    "static/js/main.892453eb.chunk.js"
+  ]
 }
