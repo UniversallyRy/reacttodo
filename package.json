@@ -16,7 +16,7 @@
       "!src/index.js"
     ]
   },
-  "homepage": "http://universallyry.github.io/reacttodo",
+  "homepage": "https://universallyry.github.io/reacttodo",
   "browserslist": [
     ">0.2%",
     "not dead",
