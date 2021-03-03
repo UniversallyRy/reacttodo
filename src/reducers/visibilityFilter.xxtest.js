@@ -6,7 +6,6 @@
 // } from '../actions/actionTypes'
 // import visibilityFilter from './visibilityFilter';
 
-
 // describe('FilterReducer', () => {
 //     it('should handle SET_VISIBILITY_FILTER', () => {
 //         const {
