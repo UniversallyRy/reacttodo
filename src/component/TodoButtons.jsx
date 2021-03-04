@@ -10,12 +10,12 @@ const TodoItemPropTypes = {
   id: PropTypes.string.isRequired,
 };
 
-const TodoItem = (props) => (
+const TodoItem = ({ handleSelectEditTodo, handleDeleteTodo, id }) => (
   <div className="todoButtons">
     <Button variant="contained" style={{ marginRight: "10px" }}>
       <EditTwoTone
         className="editButton"
-        onClick={() => props.handleSelectEditTodo(props.id)}
+        onClick={() => handleSelectEditTodo(id)}
         style={{ fontSize: 25 }}
       />
     </Button>
@@ -25,7 +25,7 @@ const TodoItem = (props) => (
         style={{ marginLeft: "0", fontSize: 25 }}
         variant="contained"
         color="inherit"
-        onClick={() => props.handleDeleteTodo(props.id)}
+        onClick={() => handleDeleteTodo(id)}
       />
     </Button>
   </div>

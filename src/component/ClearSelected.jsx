@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 
@@ -8,11 +8,9 @@ const ClearButtonProps = {
   handleClearChecked: PropTypes.func.isRequired,
 };
 
-class ClearButton extends Component {
-  someOrAll = () => {
-    const someSelected = this.props.items.filter(
-      (item) => item.isCompleted === true
-    );
+const ClearButton = ({ items, handleClearChecked }) => {
+  const someOrAll = () => {
+    const someSelected = items.filter((item) => item.isCompleted === true);
 
     if (someSelected.length >= 1) {
       return (
@@ -21,7 +19,7 @@ class ClearButton extends Component {
           style={{ marginLeft: "10px", backgroundColor: "lightgrey" }}
           variant="contained"
           color="inherit"
-          onClick={() => this.props.handleClearChecked(true)}
+          onClick={() => handleClearChecked(true)}
           id="clearButton"
         >
           Delete Selected todo/s
@@ -32,10 +30,8 @@ class ClearButton extends Component {
     }
   };
 
-  render() {
-    return <div style={{}}>{this.someOrAll()}</div>;
-  }
-}
+  return <div>{someOrAll()}</div>;
+};
 
 ClearButton.propTypes = ClearButtonProps;
 
