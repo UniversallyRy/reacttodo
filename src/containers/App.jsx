@@ -23,23 +23,21 @@ const appPropTypes = {
   handleClearChecked: PropTypes.func.isRequired,
 };
 
-class App extends Component {
-  handleAddTodo = (itemValue) => this.props.handleAddTodo(itemValue);
-  handleDeleteTodo = (selectedItemId) =>
-    this.props.handleDeleteTodo(selectedItemId);
-  handleTodoToggle = (modifiedItem) =>
-    this.props.handleTodoToggle(modifiedItem);
-  handleSelectEditTodo = (id) => this.props.handleSelectEditTodo(id);
-  handleSaveEdit = (modifiedItem) => this.props.handleSaveEdit(modifiedItem);
-  handleEditCancel = (selectedItemId) =>
-    this.props.handleEditCancel(selectedItemId);
-  handleClearChecked = (selectedItemId) =>
-    this.props.handleClearChecked(selectedItemId);
+const App = (props) => {
+  const handleAddTodo = (itemValue) => props.handleAddTodo(itemValue);
+  const handleDeleteTodo = (selectedItemId) =>
+    props.handleDeleteTodo(selectedItemId);
+  const handleTodoToggle = (modifiedItem) =>
+    props.handleTodoToggle(modifiedItem);
+  const handleSelectEditTodo = (id) => props.handleSelectEditTodo(id);
+  const handleSaveEdit = (modifiedItem) => props.handleSaveEdit(modifiedItem);
+  const handleEditCancel = (selectedItemId) =>
+    props.handleEditCancel(selectedItemId);
+  const handleClearChecked = (selectedItemId) =>
+    props.handleClearChecked(selectedItemId);
 
-  render() {
-    return <AppLayout {...this.props} />;
-  }
-}
+  return <AppLayout {...props} />;
+};
 
 const mapStateToProps = (state) => ({
   items: state.todos.items,
