@@ -5,7 +5,7 @@ import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
 import ClearButton from "./ClearSelected";
 import { List } from "@material-ui/core/";
-import Filters from "./Filters.jsx";
+import Filters from "./Filters";
 
 // Component for the todo portion of the app.
 const TodoApp = ({
@@ -45,7 +45,7 @@ const TodoApp = ({
         <Form handleAddTodo={handleAddTodo} />
       </div>
       <List style={{ width: "800px", margin: "0 auto" }}>
-        <div style={{ height: "75px" }}>
+        <div style={{ alignSelf: "center" }}>
           <Filters />
           <ClearButton handleClearChecked={handleClearChecked} items={items} />
         </div>

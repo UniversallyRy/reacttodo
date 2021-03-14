@@ -22,7 +22,7 @@ const ClearButton = ({ items, handleClearChecked }) => {
           onClick={() => handleClearChecked(true)}
           id="clearButton"
         >
-          Delete Selected todo/s
+          Delete Selected Todo/s
         </Button>
       );
     } else {
