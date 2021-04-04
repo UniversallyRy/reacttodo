@@ -41,10 +41,7 @@ describe("App", () => {
       </Provider>
     );
 
-    component
-      .find(App)
-      .instance()
-      .props.handleAddTodo("0");
+    component.find(App).instance().props.handleAddTodo("0");
 
     expect(props.handleAddTodo).toHaveBeenCalledWith("0");
   });
@@ -56,10 +53,7 @@ describe("App", () => {
       </Provider>
     );
 
-    component
-      .find(App)
-      .instance()
-      .props.handleDeleteTodo("0");
+    component.find(App).instance().props.handleDeleteTodo("0");
 
     expect(props.handleDeleteTodo).toHaveBeenCalledWith("0");
   });
@@ -71,10 +65,7 @@ describe("App", () => {
       </Provider>
     );
 
-    component
-      .find(App)
-      .instance()
-      .props.handleTodoToggle({});
+    component.find(App).instance().props.handleTodoToggle({});
 
     expect(props.handleTodoToggle).toHaveBeenCalledWith({});
   });
@@ -86,10 +77,7 @@ describe("App", () => {
       </Provider>
     );
 
-    component
-      .find(App)
-      .instance()
-      .props.handleSelectEditTodo("0");
+    component.find(App).instance().props.handleSelectEditTodo("0");
 
     expect(props.handleSelectEditTodo).toHaveBeenCalledWith("0");
   });
@@ -101,10 +89,7 @@ describe("App", () => {
       </Provider>
     );
 
-    component
-      .find(App)
-      .instance()
-      .props.handleSaveEdit({});
+    component.find(App).instance().props.handleSaveEdit({});
 
     expect(props.handleSaveEdit).toHaveBeenCalledWith({});
   });
@@ -116,10 +101,7 @@ describe("App", () => {
       </Provider>
     );
 
-    component
-      .find(App)
-      .instance()
-      .props.handleEditCancel();
+    component.find(App).instance().props.handleEditCancel();
 
     expect(props.handleEditCancel).toHaveBeenCalled();
   });
@@ -131,10 +113,7 @@ describe("App", () => {
       </Provider>
     );
 
-    component
-      .find(App)
-      .instance()
-      .props.handleClearChecked();
+    component.find(App).instance().props.handleClearChecked();
 
     expect(props.handleClearChecked).toHaveBeenCalled();
   });

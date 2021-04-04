@@ -27,12 +27,7 @@ describe("TodoApp", () => {
     const component = shallow(<TodoApp {...props} />);
 
     // Initial render
-    expect(
-      component
-        .find(".todoList")
-        .first()
-        .children()
-    ).toHaveLength(0);
+    expect(component.find(".todoList").first().children()).toHaveLength(0);
 
     const item = {
       value: "test",
@@ -70,12 +65,7 @@ describe("TodoApp", () => {
     const component = shallow(<TodoApp {...props} />);
 
     // initial render
-    expect(
-      component
-        .find(".clearButton")
-        .first()
-        .children()
-    ).toHaveLength(0);
+    expect(component.find(".clearButton").first().children()).toHaveLength(0);
 
     const item = {
       value: "test",

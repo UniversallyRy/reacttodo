@@ -16,10 +16,7 @@ describe("ClearButton", () => {
   it("should call handleClearChecked", () => {
     const component = mount(<ClearButton {...props} />);
 
-    component
-      .find(ClearButton)
-      .instance()
-      .props.handleClearChecked({});
+    component.find(ClearButton).instance().props.handleClearChecked({});
 
     expect(props.handleClearChecked).toHaveBeenCalled();
   });
