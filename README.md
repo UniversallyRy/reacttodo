@@ -8,7 +8,7 @@ A todo app . . .
 - [Redux](https://redux.js.org/) and [React Redux](https://react-redux.js.org/)
 - [material-ui](https://material-ui.com/)
 
-## Pre-requisites
+## Prerequisites
 
 - [NodeJS](https://nodejs.org)
 
@@ -26,7 +26,7 @@ And then, to run the project:
 npm start
 ```
 
-## Screenshot
+## Screenshots
 
 ![Screenshot](https://user-images.githubusercontent.com/24601662/109756755-7f9a1200-7bb6-11eb-9f66-177307887582.png)
 
