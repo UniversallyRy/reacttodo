@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import AppLayout from "../component/App";
+import AppLayout from "../component/AppLayout";
 import {
   addTodo,
   deleteTodo,

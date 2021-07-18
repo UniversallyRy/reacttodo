@@ -35,10 +35,6 @@ const TodoApp = ({
     }),
   };
 
-  const defaultProps = {
-    editingTodo: {},
-  };
-
   return (
     <div className="todoApp" style={{ marginBottom: "55px" }}>
       <div>
@@ -72,6 +68,11 @@ const TodoApp = ({
       </List>
     </div>
   );
+};
+
+//default prop to give every todo an edit object
+TodoApp.defaultProps = {
+  editingTodo: {},
 };
 
 export default TodoApp;
